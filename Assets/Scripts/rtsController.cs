@@ -14,8 +14,10 @@ public class rtsController : MonoBehaviour
     GameObject targetObject;
     public GameObject targetIndicatorPrefab;
     private Animator animator;
+    private CharacterBase character;
     void Start()
     {
+        character = GetComponent<CharacterBase>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         if (targetIndicatorPrefab)
@@ -31,6 +33,7 @@ public class rtsController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             MoveToTarget(Input.mousePosition);
+            SelectTarget(Input.mousePosition);
         }
         if (Vector3.Distance(targetObject.transform.position,transform.position)< 0.3)
         {
@@ -51,6 +54,24 @@ public class rtsController : MonoBehaviour
             {
                 targetObject.transform.position = agent.destination;
                 targetObject.SetActive(true);
+            }
+        }
+    }
+
+    void SelectTarget(Vector2 posOnScreen)
+    {
+        Ray screenRay = playerCamera.ScreenPointToRay(posOnScreen);
+        RaycastHit hit;
+        if (Physics.Raycast(screenRay, out hit))
+        {
+            
+            if (hit.collider != null && hit.collider.gameObject.GetComponent<CharacterBase>()!= null)
+            {        
+                character.SetTarget(hit.collider.gameObject.GetComponent<CharacterBase>());
+            }
+            else
+            {
+                character.SetTarget(null);
             }
         }
     }
