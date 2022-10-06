@@ -1121,6 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0cb0f2b1ac1e941941d758346c2c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMax: 100
   heathCurrent: 100
   manaMax: 100
   manaCurrent: 100
@@ -1128,6 +1129,7 @@ MonoBehaviour:
   agility: 20
   intellect: 20
   damage: 20
+  armor: 10
 --- !u!1 &791338635
 GameObject:
   m_ObjectHideFlags: 0
