@@ -39,6 +39,10 @@ public class rtsController : MonoBehaviour
         {
             animator.SetBool("isWalk", false);
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            SelectTarget(Input.mousePosition);
+        }
     }
 
     void MoveToTarget(Vector2 posOnScreen)

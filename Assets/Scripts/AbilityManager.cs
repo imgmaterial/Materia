@@ -26,7 +26,45 @@ public class AbilityManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            abilitiesDictionary["ability0"].Activate();
+            if (abilitiesDictionary["ability0"] != null)
+            {
+                abilitiesDictionary["ability0"].Activate();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (abilitiesDictionary["ability1"] != null)
+            {
+                abilitiesDictionary["ability1"].Activate();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (abilitiesDictionary["ability2"] != null)
+            {
+                abilitiesDictionary["ability2"].Activate();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (abilitiesDictionary["ability3"] != null)
+            {
+                abilitiesDictionary["ability3"].Activate();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (abilitiesDictionary["ability4"] != null)
+            {
+                abilitiesDictionary["ability4"].Activate();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (abilitiesDictionary["ability5"] != null)
+            {
+                abilitiesDictionary["ability5"].Activate();
+            }
         }
     }
 }
