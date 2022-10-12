@@ -5,7 +5,6 @@ using UnityEngine.TextCore.Text;
 
 public class ApplyModifier : AbilityBase
 {
-    public ModifierBase modifier;
     void Start()
     {
         Character = GetComponent<CharacterBase>();
@@ -26,7 +25,9 @@ public class ApplyModifier : AbilityBase
 
             if (hit.collider != null && hit.collider.gameObject.GetComponent<CharacterBase>() != null)
             {
-                hit.collider.gameObject.AddComponent<TestModifier>();
+                ModifierBase testmodifier = hit.collider.gameObject.AddComponent<TestModifier>();
+                testmodifier.caster = Character;
+                testmodifier.character = hit.collider.gameObject.GetComponent<CharacterBase>();
                 Character.manaCurrent = Character.manaCurrent - manaCost;
             }
         }

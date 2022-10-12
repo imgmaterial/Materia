@@ -1172,18 +1172,6 @@ MonoBehaviour:
   Character: {fileID: 732302763}
   manaCost: 30
   playerCamera: {fileID: 963194227}
---- !u!114 &732302773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732302752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddbe295d6a44e3d4f87a12f2dfb3ca18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &732302774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,7 +1187,6 @@ MonoBehaviour:
   Character: {fileID: 732302763}
   manaCost: 30
   playerCamera: {fileID: 963194227}
-  modifier: {fileID: 732302773}
 --- !u!1 &791338635
 GameObject:
   m_ObjectHideFlags: 0
