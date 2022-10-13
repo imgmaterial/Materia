@@ -5,9 +5,11 @@ using UnityEngine.TextCore.Text;
 
 public class ApplyModifier : AbilityBase
 {
+    public Animator animator;
     void Start()
     {
         Character = GetComponent<CharacterBase>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class ApplyModifier : AbilityBase
                 Character.manaCurrent = Character.manaCurrent - manaCost;
             }
         }
+        animator.SetBool("attack", true);
     }
 
     public override void Activate()

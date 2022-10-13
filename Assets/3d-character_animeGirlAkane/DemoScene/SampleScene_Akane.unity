@@ -713,6 +713,10 @@ PrefabInstance:
       value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 7174585619207780654, guid: 472eda4c7fef9044098f07d1125affaf, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 1679e2eb6e9a6344c994a61f31e35389, type: 3}
+    - target: {fileID: 7174585619207780654, guid: 472eda4c7fef9044098f07d1125affaf, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6cd923470842dba4389833b007642aeb, type: 2}
@@ -1187,6 +1191,7 @@ MonoBehaviour:
   Character: {fileID: 732302763}
   manaCost: 30
   playerCamera: {fileID: 963194227}
+  animator: {fileID: 0}
 --- !u!1 &791338635
 GameObject:
   m_ObjectHideFlags: 0
