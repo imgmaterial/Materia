@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.AI.Navigation;
+using UnityEngine.AI;
 
 public class RandomLayoutGenerator : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class RandomLayoutGenerator : MonoBehaviour
         grid = new int[rows, columns];
         navMeshTiles = new NavMeshSurface[rows + columns];
         RandomGrid();
+        SetTiles();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class RandomLayoutGenerator : MonoBehaviour
 
     public void SetTiles()
     {
+        NavMesh.RemoveAllNavMeshData();
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
             {
