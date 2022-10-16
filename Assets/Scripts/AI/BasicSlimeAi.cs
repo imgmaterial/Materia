@@ -20,28 +20,27 @@ public class BasicSlimeAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         state = stateDict["IDLE"];
         destination = transform.position;
+        InvokeRepeating("Roam", 2.0f, 5.0f);
+        animator.fireEvents = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (state == stateDict["IDLE"])
-        { 
-            if (Vector3.Distance(destination, transform.position)<0.3)
-            {
-                destination = transform.position + new Vector3(Random.Range(-2.0f,2.0f), 0, Random.Range(-2.0f, 2.0f));
-                agent.destination = destination;
-                IEnumerator Chill()
-                {
-                     yield return new WaitForSeconds(Random.Range(2,7));
-                }
-                StartCoroutine(Chill());
-            }
-        }
+
     }
 
     public void Roam()
     {
-
+        if (state == stateDict["IDLE"])
+        {
+            if (Vector3.Distance(destination, transform.position) < 0.3)
+            {
+                destination = transform.position + new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
+                animator.SetBool("Jump", true);
+                agent.destination = destination;
+            }
+        }
     }
+
 }

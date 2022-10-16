@@ -24,16 +24,20 @@ public class ApplyModifier : AbilityBase
         RaycastHit hit;
         if (Physics.Raycast(screenRay, out hit))
         {
-
-            if (hit.collider != null && hit.collider.gameObject.GetComponent<CharacterBase>() != null)
+            print("cast");
+            if(hit.collider != null)
+            {
+                print("collide");
+            }
+            if (hit.collider != null && hit.collider.GetComponent<CharacterBase>() != null)
             {
                 ModifierBase testmodifier = hit.collider.gameObject.AddComponent<TestModifier>();
                 testmodifier.caster = Character;
-                testmodifier.character = hit.collider.gameObject.GetComponent<CharacterBase>();
+                testmodifier.character = hit.collider.GetComponent<CharacterBase>();
                 Character.manaCurrent = Character.manaCurrent - manaCost;
+                print("hit");
             }
         }
-        animator.SetBool("attack", true);
     }
 
     public override void Activate()
