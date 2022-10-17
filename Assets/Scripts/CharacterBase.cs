@@ -73,7 +73,6 @@ public class CharacterBase : MonoBehaviour
         if (attackTarget != null & Vector3.Distance(transform.position, attackTarget.transform.position) < attackRange)
         {
             ApplyDamage(damage, attackTarget);
-            print("hit");
         }
 
     }
