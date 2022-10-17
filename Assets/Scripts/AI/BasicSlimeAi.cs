@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -38,8 +39,9 @@ public class BasicSlimeAi : MonoBehaviour
                 Follow(GameObject.FindGameObjectsWithTag("Player")[0]);
             }
         }
-    }
 
+    }
+    
     public void Roam()
     {
 
@@ -72,9 +74,13 @@ public class BasicSlimeAi : MonoBehaviour
     public void Attack(CharacterBase target)
     {
         character.SetTarget(target);
-        if (Vector3.Distance(character.transform.position,target.transform.position)<0.5)
+
+        InvokeRepeating("AttackMotion", 0, 1.75f);
+    }
+    public void AttackMotion()
+    {
+        if (Vector3.Distance(character.transform.position, GameObject.FindGameObjectsWithTag("Player")[0].transform.position) < 1.0f)
         {
-            animator.SetBool("Jump", false);
             animator.SetBool("Attack", true);
         }
     }
