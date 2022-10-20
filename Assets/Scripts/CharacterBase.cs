@@ -6,6 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 public class CharacterBase : MonoBehaviour
 {
     public float healthMax = 100;
+    public float experiance;
+    public int level = 1; 
     public float heathCurrent;
     public float manaMax = 100;
     public float manaCurrent = 100;
@@ -13,9 +15,11 @@ public class CharacterBase : MonoBehaviour
     public int agility = 20;
     public int intellect = 20;
     public int damage = 20;
+    public int expReturn = 20;
     public float armor = 10;
     public float attackSpeed = 0.5f;
     public float attackRange = 3;
+    private int expToLevel = 100;
     private float damageRecived;
     private CharacterBase currentTarget;
     void Start()
@@ -26,7 +30,17 @@ public class CharacterBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (heathCurrent < 0)
+        {
+            Destroy(gameObject);
+            ExpOnDeath();
+        }
 
+        if (experiance > expToLevel)
+        {
+            experiance = 0;
+            level++;
+        }
     }
 
     public void TakeDamage(float _damage, CharacterBase source)
@@ -103,5 +117,12 @@ public class CharacterBase : MonoBehaviour
         manaMax = CalculateMana();
         manaCurrent = manaMax;
         armor = CalculateArmor();
+    }
+
+    public void ExpOnDeath()
+    {
+        CharacterBase player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<CharacterBase>();
+        player.experiance = player.experiance + expReturn;
+        
     }
 }

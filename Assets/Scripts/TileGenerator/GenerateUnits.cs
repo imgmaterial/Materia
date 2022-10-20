@@ -14,21 +14,20 @@ public class GenerateUnits : MonoBehaviour
         tileLevel = randomValue;
         for (int i = 0; i < tileLevel; i++)
         {
-            Instantiate(unit,new Vector3(gameObject.transform.position.x,0, gameObject.transform.position.z),Quaternion.identity);
+            Instantiate(unit,new Vector3(gameObject.transform.position.x+UnityEngine.Random.Range(-5.0f,5.0f),0, gameObject.transform.position.z+ UnityEngine.Random.Range(-5.0f, 5.0f)),Quaternion.identity);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     int WeightedGenerator(int UpperBound)
     {
         float unRandomVariable = UnityEngine.Random.value;
-        print(unRandomVariable);
-        if (unRandomVariable>0.6f)
+        if (unRandomVariable>0.5f)
         {
             return 0;
         }
@@ -36,9 +35,8 @@ public class GenerateUnits : MonoBehaviour
         {
             for (int i = 1; i < UpperBound; i++)
             {
-                if (unRandomVariable>0.5*(1/(i)))
+                if (unRandomVariable>(0.4f*(1.0f/(i))))
                 {
-                    
                     return i;
                 }
             }
