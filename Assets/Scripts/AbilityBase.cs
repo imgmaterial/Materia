@@ -22,7 +22,7 @@ public class AbilityBase : MonoBehaviour
 
     public virtual void Activate()
     {
-        Character.manaCurrent = -Character.manaCurrent - 30;
+        Character.manaCurrent = Character.manaCurrent - 30;
         print("Activated");
     }
 }

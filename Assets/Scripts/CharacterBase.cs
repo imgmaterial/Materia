@@ -38,7 +38,8 @@ public class CharacterBase : MonoBehaviour
 
         if (experiance > expToLevel)
         {
-            experiance = 0;
+            experiance = experiance - expToLevel;
+            expToLevel = expToLevel * 4;
             level++;
         }
     }

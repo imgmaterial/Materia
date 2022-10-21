@@ -10,7 +10,7 @@ public class GenerateUnits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int randomValue = WeightedGenerator(10);
+        int randomValue = WeightedGenerator(30);
         tileLevel = randomValue;
         for (int i = 0; i < tileLevel; i++)
         {
